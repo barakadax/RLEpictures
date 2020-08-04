@@ -73,7 +73,7 @@ void save_rle_2(FILE *rle_file) {	//getting the number to tanslate to binary per
 
 bool save_rle() {	//saving rle function starts here (getting variables ready)
 	char *path = get_path();
-	FILE *rle_file = fopen(path, "w");
+	FILE *rle_file = fopen(path, "wb");
 	free(path);
 	if (rle_file == NULL)
 		return save_error();
@@ -129,7 +129,7 @@ bool open_rle() {	//making variables to save and print rle file & save and print
 	system("cls");
     char *path = get_path();
     unsigned long long int calculate = 0;
-    FILE *rle_file = fopen(path, "r");
+    FILE *rle_file = fopen(path, "rb");
     free(path);
 	if (rle_file == NULL)
 		return open_error(rle_file);
@@ -147,7 +147,7 @@ bool open_rle() {	//making variables to save and print rle file & save and print
 bool save_txt() {	//saving picture as literal picture in a file
 	char *path = get_path();
 	unsigned long long int calculate = 0;
-	FILE *txt_file = fopen(path, "w");
+	FILE *txt_file = fopen(path, "wb");
 	free(path);
 	if (txt_file == NULL)
 		return open_error(txt_file);
@@ -179,7 +179,7 @@ bool open_text() {	//making variables and validition & then saving and printing 
 	system("cls");
 	char* path = get_path(), dummy = '\0';
 	unsigned long long int calculate = 0;
-	FILE* txt_file = fopen(path, "r");
+	FILE* txt_file = fopen(path, "rb");
 	free(path);
 	if (txt_file == NULL)
 		return open_error(txt_file);
