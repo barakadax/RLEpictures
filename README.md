@@ -1,6 +1,10 @@
 # RLEpictures
 
 RLE format, save, open & create pictures with CLI commanded.<br>
+Now works on linux and windows (rewritten in Ubuntu)<br>
+To compile with GCC: gcc Struct.h Main.c Initializer.h Initializer.c InternalLogic.h InternalLogic.c ReadWriteFunctions.h ReadWriteFunctions.c CreateDrawing.h CreateDrawing.c -lm -o MAIN<br>
+To run: ./MAIN<br>
+Exmaple:<br>
 <img src="rle_example.png" title="Example" alt="Sample of create_romb"><br>
 Command list:<br>
 open_rle file_path<br>
