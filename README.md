@@ -1,13 +1,15 @@
 # RLEpictures
 
-RLE format create, save & open picture CLI commanded.<br>
+RLE format, save, open & create pictures with CLI commanded.<br>
+<img src="rle_example.png" title="Example" alt="Sample of create_romb"><br>
 Command list:<br>
-open_RLE_picture file_path<br>
-open_TXT_picture file_path<br>
-save_RLE_picture file_path<br>
-save_TXT_picture file_path<br>
-create_square size(int) regular/invert<br>
-create_treangle size regular/invert<br>
+open_rle file_path<br>
+open_txt file_path<br>
+save_rle file_path<br>
+save_txt file_path<br>
+create_square size regular/invert<br>
+create_triangle size regular/invert<br>
 create_romb size regular/invert<br>
-stop<br>
-help/?
+print<br>
+exit<br>
+help
