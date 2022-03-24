@@ -17,19 +17,6 @@ void printDrawing() {
     }
 }
 
-/*void printDrawingReflection() {
-    drawing *temp = head;
-    for (unsigned int i = 0; i < rowSize / 2; i++) {
-        printf("%.*s\n\r", columnSize, temp->rowData);
-        temp = temp->next;
-    }
-    temp = temp->previous;
-    while (temp) {
-        printf("%.*s\n\r", columnSize, temp->rowData);
-        temp = temp->previous;
-    }
-}*/
-
 void help() {
     printf("\r\n<<< Maximum rows allowed: %d\n\r"
     "<<< Maximum columns allowed: %d\n\r\n"
@@ -119,10 +106,6 @@ void help() {
     rowSize < columnSize ? rowSize / 2 - 1 : columnSize / 2 - 1);
 }
 
-/*void cleanInputBuffer() {
-    for (char ch; (ch = getchar()) != '\n' && ch != EOF;);
-}*/
-
 char trimInput() {
     char tempChar = ' ';
     while (tempChar == ' ')
@@ -135,7 +118,6 @@ char *reallocate(char *userCommandInput, int sizeToAllocate) {
     userCommandInput = (char *) realloc(userCommandInput, sizeof(char) * sizeToAllocate);
     if (!userCommandInput) {
         free(backup);
-        //cleanInputBuffer();
         return NULL;
     }
     return userCommandInput;
@@ -150,14 +132,11 @@ char userInputGetChar() {
 
 char *getUserInput() {
     char *userCommandInput = (char *) malloc(sizeof(char) * inputLengthExpectation);
-    if (!userCommandInput) {
-        //cleanInputBuffer();
+    if (!userCommandInput)
         return NULL;
-    }
     userCommandInput[0] = trimInput();
     if (userCommandInput[0] == '\n') {
         free(userCommandInput);
-        //cleanInputBuffer();
         return NULL;
     }
     for (unsigned long long i = 1; userCommandInput[i - 1] != '\0'; i++) {
@@ -194,10 +173,8 @@ void execute() {
             startCreatingRhombus();
         else if (!strcmp(userCommand, "print") || !strcmp(userCommand, "print_last") || !strcmp(userCommand, "last"))
             printDrawing();
-        else {
+        else
             printf("<<< Input \"%s\" is invalid, if you\'re stuck try typing: \"help\".\n\r", userCommand);
-            //cleanInputBuffer();
-        }
         free(userCommand);
     }
 }

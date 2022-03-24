@@ -30,7 +30,6 @@ int getFlag() {
         charFlag = 0;
     else {
         printf("<<< Can\'t create square with the flag input given, use \"regular\" or \"invert\" only.\n\r");
-        //cleanInputBuffer();
         free(fillFlag);
         return 2;
     }
@@ -41,13 +40,11 @@ int getFlag() {
 int validateInput(int size, int drawChar) {
     if (size == 0) {
         printf("<<< Can\'t create shape with this size input.\n\r");
-        //cleanInputBuffer();
         return 1;
     }
 
     if (drawChar > 1 || drawChar < 0) {
         printf("<<< Can\'t create shape with drawing option input.\n\r");
-        //cleanInputBuffer();
         return 1;
     }
     return 0;

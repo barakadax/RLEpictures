@@ -11,7 +11,6 @@ void headCreator() {
         exit(1);
     }
     head->next = NULL;
-    head->previous = NULL;
 }
 
 void freeDrawingMemoryAllocation() {
@@ -33,7 +32,6 @@ void buildDrawingStructure() {
             exit(1);
         }
         temp->next->next = NULL;
-        temp->next->previous = temp;
         temp = temp->next;
     }
 }

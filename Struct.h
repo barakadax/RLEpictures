@@ -6,7 +6,6 @@
 typedef struct drawing {
     char rowData[columnSize];
     struct drawing * next;
-    struct drawing * previous;
 } drawing;
 
 drawing *head;
