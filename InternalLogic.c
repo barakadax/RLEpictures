@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Struct.h"
+#include "Initializer.h"
 #include "CreateDrawing.h"
 #include "ReadWriteFunctions.h"
 #define inputLengthExpectation 16
@@ -125,9 +126,14 @@ char *reallocate(char *userCommandInput, int sizeToAllocate) {
 
 char userInputGetChar() {
     char tempChar = tolower(getchar());
-    if (tempChar == ' ' || tempChar == '\n')
-        return '\0';
-    return tempChar;
+    return tempChar == ' ' || tempChar == '\n' ? '\0' : tempChar;
+}
+
+void outOfRangeAllocationError(char *userCommandInput) {
+    printf("<<< Error, illegal input was detected, closing the program.\r\n");
+    free(userCommandInput);
+    freeDrawingMemoryAllocation();
+    exit(1);
 }
 
 char *getUserInput() {
@@ -140,6 +146,8 @@ char *getUserInput() {
         return NULL;
     }
     for (size_t i = 1; userCommandInput[i - 1] != '\0'; i++) {
+        if (i + inputLengthExpectation >= 65535)
+            outOfRangeAllocationError(userCommandInput);
         if (i % (inputLengthExpectation - 1) == 0)
             userCommandInput = reallocate(userCommandInput, inputLengthExpectation + i);
         userCommandInput[i] = userInputGetChar();

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Struct.h"
+#include "Initializer.h"
 #include "InternalLogic.h"
 
 extern drawing *head;
@@ -30,8 +31,7 @@ int getFlag() {
         charFlag = 0;
     else {
         printf("<<< Can\'t create square with the flag input given, use \"regular\" or \"invert\" only.\r\n");
-        free(fillFlag);
-        return 2;
+        charFlag = 2;
     }
     free(fillFlag);
     return charFlag;
@@ -43,7 +43,7 @@ int validateInput(int size, int drawChar) {
         return 1;
     }
 
-    if (drawChar > 1 || drawChar < 0) {
+    else if (drawChar > 1 || drawChar < 0) {
         printf("<<< Can\'t create shape with drawing option input.\r\n");
         return 1;
     }

@@ -4,15 +4,6 @@
 
 extern drawing *head;
 
-void headCreator() {
-    head = (drawing *) malloc(sizeof(drawing));
-    if (!head) {
-        printf("Memory issue couldn\'t start allocating memory, closed program.\r\n");
-        exit(1);
-    }
-    head->next = NULL;
-}
-
 void freeDrawingMemoryAllocation() {
     drawing *temp = NULL;
     while(head) {
@@ -20,6 +11,16 @@ void freeDrawingMemoryAllocation() {
         free(head);
         head = temp;
     }
+}
+
+void headCreator() {
+    head = (drawing *) malloc(sizeof(drawing));
+    if (!head) {
+        printf("Memory issue couldn\'t start allocating memory, closed program.\r\n");
+        freeDrawingMemoryAllocation();
+        exit(1);
+    }
+    head->next = NULL;
 }
 
 void buildDrawingStructure() {
