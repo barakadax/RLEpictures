@@ -11,11 +11,11 @@ int getNumber(int maxShapeSize) {
     unsigned int shapeSize = atoi(stringSize);
     free(stringSize);
     if (shapeSize <= 0) {
-        printf("<<< Error, wrong input or value supplied equal or lower from zero.\n\r");
+        printf("<<< Error, wrong input or value supplied equal or lower from zero.\r\n");
         return 0;
     }
     else if (shapeSize > maxShapeSize) {
-        printf("<<< Error, value entered is bigger than allowed, please read guide before continuing.\n\r");
+        printf("<<< Error, value entered is bigger than allowed, please read guide before continuing.\r\n");
         return 0;
     }
     return shapeSize;
@@ -29,7 +29,7 @@ int getFlag() {
     else if (!strcmp(fillFlag, "invert"))
         charFlag = 0;
     else {
-        printf("<<< Can\'t create square with the flag input given, use \"regular\" or \"invert\" only.\n\r");
+        printf("<<< Can\'t create square with the flag input given, use \"regular\" or \"invert\" only.\r\n");
         free(fillFlag);
         return 2;
     }
@@ -39,12 +39,12 @@ int getFlag() {
 
 int validateInput(int size, int drawChar) {
     if (size == 0) {
-        printf("<<< Can\'t create shape with this size input.\n\r");
+        printf("<<< Can\'t create shape with this size input.\r\n");
         return 1;
     }
 
     if (drawChar > 1 || drawChar < 0) {
-        printf("<<< Can\'t create shape with drawing option input.\n\r");
+        printf("<<< Can\'t create shape with drawing option input.\r\n");
         return 1;
     }
     return 0;

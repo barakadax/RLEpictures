@@ -12,95 +12,95 @@ extern drawing *head;
 void printDrawing() {
     drawing *temp = head;
     while (temp) {
-        printf("%.*s\n\r", columnSize, temp->rowData);
+        printf("%.*s\r\n", columnSize, temp->rowData);
         temp = temp->next;
     }
 }
 
 void help() {
-    printf("\r\n<<< Maximum rows allowed: %d\n\r"
-    "<<< Maximum columns allowed: %d\n\r\n"
-    "<<< exit\n\r"
-    "<<<     SYNOPSIS\n\r"
-    "<<<         stop\n\r"
-    "<<<         exit\n\r"
-    "<<<         quit\n\r"
-    "<<<         close\n\r"
-    "<<<     DESCRIPTION\n\r"
-    "<<<         Halts the program from running, free memory allocation and exiting.\n\r"
-    "<<<     OPTIONS\n\r"
-    "<<<         None\n\r\n"
-    "<<< help\n\r"
-    "<<<     SYNOPSIS\n\r"
-    "<<<         help\n\r"
-    "<<<         guide\n\r"
-    "<<<         man\n\r"
-    "<<<         ?\n\r"
-    "<<<     DESCRIPTION\n\r"
-    "<<<         Loads this guide text.\n\r"
-    "<<<     OPTIONS\n\r"
-    "<<<         None\n\r\n"
-    "<<< open rle file\n\r"
-    "<<<     SYNOPSIS\n\r"
-    "<<<         open_rle [FILE]\n\r"
-    "<<<     DESCRIPTION\n\r"
-    "<<<         Retrive file from specified path+file.rle, read the file and show on screen the picture.\n\r"
-    "<<<     OPTIONS\n\r"
-    "<<<         None\n\r\n"
-    "<<< open text file\n\r"
-    "<<<     SYNOPSIS\n\r"
-    "<<<         open_txt [FILE]\n\r"
-    "<<<     DESCRIPTION\n\r"
-    "<<<         Retrive file from specified path+file.txt, read the file and show on screen the picture.\n\r"
-    "<<<     OPTIONS\n\r"
-    "<<<         None\n\r\n"
-    "<<< save rle file\n\r"
-    "<<<     SYNOPSIS\n\r"
-    "<<<         save_rle [FILE]\n\r"
-    "<<<     DESCRIPTION\n\r"
-    "<<<         Saves or override if file already exists last used picture with path+file provided as rle format file.\n\r"
-    "<<<     OPTIONS\n\r"
-    "<<<         None\n\r\n"
-    "<<< save text file\n\r"
-    "<<<     SYNOPSIS\n\r"
-    "<<<         save_txt [FILE]\n\r"
-    "<<<     DESCRIPTION\n\r"
-    "<<<         Saves or override if file already exists last used picture with path+file provided as txt format file.\n\r"
-    "<<<     OPTIONS\n\r"
-    "<<<         None\n\r\n"
-    "<<< create square\n\r"
-    "<<<     SYNOPSIS\n\r"
-    "<<<         create_square [SIZE] [OPTION]\n\r"
-    "<<<     DESCRIPTION\n\r"
-    "<<<         Creates a square with given positive decimal number, can\'t exceed %d\n\r"
-    "<<<     OPTIONS\n\r"
-    "<<<         regular - the shape will be colored and the rest will be blank\n\r"
-    "<<<         inverted - the shape will be blanked and the rest will be colored\n\r\n"
-    "<<< create triangle\n\r"
-    "<<<     SYNOPSIS\n\r"
-    "<<<         create_triangle [SIZE] [OPTION]\n\r"
-    "<<<     DESCRIPTION\n\r"
-    "<<<         Creates a triangle with given positive decimal number, can\'t exceed %d\n\r"
-    "<<<     OPTIONS\n\r"
-    "<<<         regular - the shape will be colored and the rest will be blank\n\r"
-    "<<<         inverted - the shape will be blanked and the rest will be colored\n\r\n"
-    "<<< create rhombus\n\r"
-    "<<<     SYNOPSIS\n\r"
-    "<<<         create_romb [SIZE] [OPTION]\n\r"
-    "<<<     DESCRIPTION\n\r"
-    "<<<         Creates a rhombus with given positive decimal number, can\'t exceed %d\n\r"
-    "<<<     OPTIONS\n\r"
-    "<<<         regular - the shape will be colored and the rest will be blank\n\r"
-    "<<<         inverted - the shape will be blanked and the rest will be colored\n\r\n"
-    "<<< print\n\r"
-    "<<<     SYNOPSIS\n\r"
-    "<<<         print\n\r"
-    "<<<         print_last\n\r"
-    "<<<         last\n\r"
-    "<<<     DESCRIPTION\n\r"
-    "<<<         Prints onto screen the last used drawing.\n\r"
-    "<<<     OPTIONS\n\r"
-    "<<<         None\n\r\n",
+    printf("\r\n<<< Maximum rows allowed: %d\r\n"
+    "<<< Maximum columns allowed: %d\r\n\n"
+    "<<< exit\r\n"
+    "<<<     SYNOPSIS\r\n"
+    "<<<         stop\r\n"
+    "<<<         exit\r\n"
+    "<<<         quit\r\n"
+    "<<<         close\r\n"
+    "<<<     DESCRIPTION\r\n"
+    "<<<         Halts the program from running, free memory allocation and exiting.\r\n"
+    "<<<     OPTIONS\r\n"
+    "<<<         None\r\n\n"
+    "<<< help\r\n"
+    "<<<     SYNOPSIS\r\n"
+    "<<<         help\r\n"
+    "<<<         guide\r\n"
+    "<<<         man\r\n"
+    "<<<         ?\r\n"
+    "<<<     DESCRIPTION\r\n"
+    "<<<         Loads this guide text.\r\n"
+    "<<<     OPTIONS\r\n"
+    "<<<         None\r\n\n"
+    "<<< open rle file\r\n"
+    "<<<     SYNOPSIS\r\n"
+    "<<<         open_rle [FILE]\r\n"
+    "<<<     DESCRIPTION\r\n"
+    "<<<         Retrive file from specified path+file.rle, read the file and show on screen the picture.\r\n"
+    "<<<     OPTIONS\r\n"
+    "<<<         None\r\n\n"
+    "<<< open text file\r\n"
+    "<<<     SYNOPSIS\r\n"
+    "<<<         open_txt [FILE]\r\n"
+    "<<<     DESCRIPTION\r\n"
+    "<<<         Retrive file from specified path+file.txt, read the file and show on screen the picture.\r\n"
+    "<<<     OPTIONS\r\n"
+    "<<<         None\r\n\n"
+    "<<< save rle file\r\n"
+    "<<<     SYNOPSIS\r\n"
+    "<<<         save_rle [FILE]\r\n"
+    "<<<     DESCRIPTION\r\n"
+    "<<<         Saves or override if file already exists last used picture with path+file provided as rle format file.\r\n"
+    "<<<     OPTIONS\r\n"
+    "<<<         None\r\n\n"
+    "<<< save text file\r\n"
+    "<<<     SYNOPSIS\r\n"
+    "<<<         save_txt [FILE]\r\n"
+    "<<<     DESCRIPTION\r\n"
+    "<<<         Saves or override if file already exists last used picture with path+file provided as txt format file.\r\n"
+    "<<<     OPTIONS\r\n"
+    "<<<         None\r\n\n"
+    "<<< create square\r\n"
+    "<<<     SYNOPSIS\r\n"
+    "<<<         create_square [SIZE] [OPTION]\r\n"
+    "<<<     DESCRIPTION\r\n"
+    "<<<         Creates a square with given positive decimal number, can\'t exceed %d\r\n"
+    "<<<     OPTIONS\r\n"
+    "<<<         regular - the shape will be colored and the rest will be blank\r\n"
+    "<<<         inverted - the shape will be blanked and the rest will be colored\r\n\n"
+    "<<< create triangle\r\n"
+    "<<<     SYNOPSIS\r\n"
+    "<<<         create_triangle [SIZE] [OPTION]\r\n"
+    "<<<     DESCRIPTION\r\n"
+    "<<<         Creates a triangle with given positive decimal number, can\'t exceed %d\r\n"
+    "<<<     OPTIONS\r\n"
+    "<<<         regular - the shape will be colored and the rest will be blank\r\n"
+    "<<<         inverted - the shape will be blanked and the rest will be colored\r\n\n"
+    "<<< create rhombus\r\n"
+    "<<<     SYNOPSIS\r\n"
+    "<<<         create_romb [SIZE] [OPTION]\r\n"
+    "<<<     DESCRIPTION\r\n"
+    "<<<         Creates a rhombus with given positive decimal number, can\'t exceed %d\r\n"
+    "<<<     OPTIONS\r\n"
+    "<<<         regular - the shape will be colored and the rest will be blank\r\n"
+    "<<<         inverted - the shape will be blanked and the rest will be colored\r\n\n"
+    "<<< print\r\n"
+    "<<<     SYNOPSIS\r\n"
+    "<<<         print\r\n"
+    "<<<         print_last\r\n"
+    "<<<         last\r\n"
+    "<<<     DESCRIPTION\r\n"
+    "<<<         Prints onto screen the last used drawing.\r\n"
+    "<<<     OPTIONS\r\n"
+    "<<<         None\r\n\n",
     rowSize, columnSize, rowSize < columnSize ? rowSize - 2 : columnSize - 2,
     rowSize < columnSize ? rowSize / 2 - 1 : columnSize / 2 - 1,
     rowSize < columnSize ? rowSize / 2 - 1 : columnSize / 2 - 1);
@@ -139,7 +139,7 @@ char *getUserInput() {
         free(userCommandInput);
         return NULL;
     }
-    for (unsigned long long i = 1; userCommandInput[i - 1] != '\0'; i++) {
+    for (size_t i = 1; userCommandInput[i - 1] != '\0'; i++) {
         if (i % (inputLengthExpectation - 1) == 0)
             userCommandInput = reallocate(userCommandInput, inputLengthExpectation + i);
         userCommandInput[i] = userInputGetChar();
@@ -149,7 +149,7 @@ char *getUserInput() {
 
 void execute() {
     while (1) {
-        printf("<<< Please enter your command:\n\r>>> ");
+        printf("<<< Please enter your command:\r\n>>> ");
         char *userCommand = getUserInput();
         if (!strcmp(userCommand, "stop") || !strcmp(userCommand, "exit") || !strcmp(userCommand, "quit") || !strcmp(userCommand, "close")) {
             free(userCommand);
@@ -174,7 +174,7 @@ void execute() {
         else if (!strcmp(userCommand, "print") || !strcmp(userCommand, "print_last") || !strcmp(userCommand, "last"))
             printDrawing();
         else
-            printf("<<< Input \"%s\" is invalid, if you\'re stuck try typing: \"help\".\n\r", userCommand);
+            printf("<<< Input \"%s\" is invalid, if you\'re stuck try typing: \"help\".\r\n", userCommand);
         free(userCommand);
     }
 }

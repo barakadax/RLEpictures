@@ -1,6 +1,6 @@
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include "Struct.h"
 #include "InternalLogic.h"
 
@@ -9,13 +9,13 @@ extern drawing *head;
 FILE *getFile(char *fileFlag) {
     char *pathAndFile = getUserInput();
     if (!pathAndFile) {
-        printf("<<< Couldn\'t get path+file to override or create.\n\r");
+        printf("<<< Couldn\'t get path+file to override or create.\r\n");
         return NULL;
     }
     FILE *saveTextFile = fopen(pathAndFile, fileFlag);
     free(pathAndFile);
     if (!saveTextFile) {
-        printf("<<< Couldn\'t create or find file, check the path and file supplied or your hard disk.\n\r");
+        printf("<<< Couldn\'t create or find file, check the path and file supplied or your hard disk.\r\n");
         return NULL;
     }
     return saveTextFile;
@@ -33,7 +33,7 @@ void saveText() {
     }
 
     fclose(saveTextFile);
-    printf("<<< File been saved!\n\r");
+    printf("<<< File been saved!\r\n");
 }
 
 void openText() {
@@ -45,7 +45,7 @@ void openText() {
     drawing *temp = head;
     while (!feof(readTextFile)) {
         if (!temp) {
-            printf("<<< Make sure the picture you trying to open size is matching this program settings.\n\r");
+            printf("<<< Make sure the picture you trying to open size is matching this program settings.\r\n");
             break;
         }
         for (unsigned int i = 0; i < columnSize; i++)
@@ -98,7 +98,7 @@ void saveRLE() {
     RLEWrite(saveRLEFile, counter, flag);
     
     fclose(saveRLEFile);
-    printf("<<< File been saved!\n\r");
+    printf("<<< File been saved!\r\n");
 }
 
 void openRLE() {
