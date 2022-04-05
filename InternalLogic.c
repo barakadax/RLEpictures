@@ -130,16 +130,17 @@ char userInputGetChar() {
 }
 
 void outOfRangeAllocationError(char *userCommandInput) {
-    printf("<<< Error, illegal input was detected, closing the program.\r\n");
+    printf("<<< Error, illegal input was detected or memory issue, closing the program.\r\n");
     free(userCommandInput);
     freeDrawingMemoryAllocation();
     exit(1);
 }
 
 char *getUserInput() {
+    char *backup = NULL;
     char *userCommandInput = (char *) malloc(sizeof(char) * inputLengthExpectation);
     if (!userCommandInput)
-        return NULL;
+        outOfRangeAllocationError(NULL);
     userCommandInput[0] = trimInput();
     if (userCommandInput[0] == '\n') {
         free(userCommandInput);
@@ -148,8 +149,11 @@ char *getUserInput() {
     for (size_t i = 1; userCommandInput[i - 1] != '\0'; i++) {
         if (i + inputLengthExpectation >= 65535)
             outOfRangeAllocationError(userCommandInput);
+        backup = userCommandInput;
         if (i % (inputLengthExpectation - 1) == 0)
             userCommandInput = reallocate(userCommandInput, inputLengthExpectation + i);
+        if (!userCommandInput)
+            outOfRangeAllocationError(backup);
         userCommandInput[i] = userInputGetChar();
     }
     return reallocate(userCommandInput, strlen(userCommandInput) + 1);
@@ -159,7 +163,11 @@ void execute() {
     while (1) {
         printf("<<< Please enter your command:\r\n>>> ");
         char *userCommand = getUserInput();
-        if (!strcmp(userCommand, "stop") || !strcmp(userCommand, "exit") || !strcmp(userCommand, "quit") || !strcmp(userCommand, "close")) {
+        if (!userCommand) {
+            printf("<<< Enter was pressed without finishing your command, please try again\r\n");
+            continue;
+        }
+        else if (!strcmp(userCommand, "stop") || !strcmp(userCommand, "exit") || !strcmp(userCommand, "quit") || !strcmp(userCommand, "close")) {
             free(userCommand);
             return;
         }

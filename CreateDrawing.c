@@ -9,7 +9,11 @@ extern drawing *head;
 
 int getNumber(int maxShapeSize) {
     char *stringSize = getUserInput();
-    unsigned int shapeSize = atoi(stringSize);
+    if (!stringSize) {
+        printf("<<< Error, illegal input was detected or memory issue.\r\n");
+        return 0;
+    }
+    int shapeSize = atoi(stringSize);
     free(stringSize);
     if (shapeSize <= 0) {
         printf("<<< Error, wrong input or value supplied equal or lower from zero.\r\n");
@@ -25,7 +29,11 @@ int getNumber(int maxShapeSize) {
 int getFlag() {
     int charFlag = 0;
     char *fillFlag = getUserInput();
-    if (!strcmp(fillFlag, "regular"))
+    if (!fillFlag) {
+        printf("<<< Error, memory issue.\r\n");
+        charFlag = 2;
+    }
+    else if (!strcmp(fillFlag, "regular"))
         charFlag = 1;
     else if (!strcmp(fillFlag, "invert"))
         charFlag = 0;
