@@ -111,10 +111,11 @@ void openRLE() {
     unsigned int amount = 0, counter = 0;
     char byte[8] = {0}, charToDraw = '\0';
     while (!feof(openRLEFile)) {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 8; i++) {
             byte[i] = fgetc(openRLEFile);
-        if (byte[0] == EOF)
-            break;
+            if (byte[i] == EOF)
+                return;
+        }
         charToDraw = byte[0] ? filledChar : blankChar;
         amount = 0;
         for (unsigned int i = 1; i < 8; i++)
