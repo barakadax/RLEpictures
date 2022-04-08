@@ -114,16 +114,18 @@ void openRLE() {
         for (int i = 0; i < 8; i++) {
             byte[i] = fgetc(openRLEFile);
             if (byte[i] == EOF)
-                return;
+                break;
         }
         charToDraw = byte[0] ? filledChar : blankChar;
         amount = 0;
         for (unsigned int i = 1; i < 8; i++)
             amount += byte[i] ? pow(2, 7 - i) : 0; 
         for (unsigned int i = 0; i < amount; i++, counter++) {
-            if (counter != 0 && counter % 30 == 0)
+            if (counter != 0 && counter % columnSize == 0)
                 temp = temp->next;
-            temp->rowData[counter % 30] = charToDraw;
+            if (!temp)
+                break;
+            temp->rowData[counter % columnSize] = charToDraw;
         }
     }
 
