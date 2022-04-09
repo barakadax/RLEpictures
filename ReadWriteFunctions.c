@@ -110,7 +110,7 @@ void openRLE() {
     drawing *temp = head;
     unsigned int amount = 0, counter = 0;
     char byte[8] = {0}, charToDraw = '\0';
-    while (!feof(openRLEFile)) {
+    while (!feof(openRLEFile) && temp) {
         for (int i = 0; i < 8; i++) {
             byte[i] = fgetc(openRLEFile);
             if (byte[i] == EOF)
@@ -120,7 +120,7 @@ void openRLE() {
         amount = 0;
         for (unsigned int i = 1; i < 8; i++)
             amount += byte[i] ? pow(2, 7 - i) : 0; 
-        for (unsigned int i = 0; i < amount; i++, counter++) {
+        for (unsigned int i = 0; i < amount && temp; i++, counter++) {
             if (counter != 0 && counter % columnSize == 0)
                 temp = temp->next;
             if (!temp)
