@@ -8,4 +8,4 @@ typedef struct drawing {
     struct drawing * next;
 } drawing;
 
-drawing *head;
+extern drawing *head;

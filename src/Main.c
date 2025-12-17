@@ -4,7 +4,7 @@
 #include "Initializer.h"
 #include "InternalLogic.h"
 
-extern drawing *head;
+drawing *head = NULL;
 
 void main() {
     buildDrawing();
